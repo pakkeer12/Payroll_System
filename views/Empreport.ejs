@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Payroll System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+<body style="font-family: Montserrat, sans-serif;">
+  <nav class="navbar d-print-block navbar-dark navbar-expand-md sticky-top text-center navy" style="background-color: black;">
+    <div class="container-fluid"><a class="navbar-brand text-light" href="#"><strong>PAYROLL SYSTEM</strong></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="nav navbar-nav text-left ml-auto">
+          <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Welcome <%=  username.fullname %></a></li>
+          <li class="nav-item" role="presentation"><a class="nav-link" href="/">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <h1 style="background:aliceblue;margin-bottom:0px"> Generate Salary Report </h1>
+  <div class="row register-form print" style="background:aliceblue">
+    <div class="col-md-8 offset-md-2">
+      <form method="post" class="custom-form" action="/report">
+        <hr>
+        <h2 class="text-center">Payslip for <%= month %> 2021</h2>
+        <hr>
+        <div class="row" style="margin-top:20px">
+          <div class="col">
+            <h5>Employee Name </h5>
+          </div>
+          <div class="col">
+            <h5><%=  username.fullname %></h5>
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <div class="col">
+            <h5>Designation</h5>
+          </div>
+          <div class="col">
+            <h5><%=  username.des %></h5>
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <div class="col">
+            <h5>Contact No </h5>
+          </div>
+          <div class="col">
+            <h5>+91 <%=  username.phone %></h5>
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <div class="col">
+            <h5>Alloted Salary per Day</h5>
+          </div>
+          <div class="col">
+            <h5> RS. <%=  username.salaryperday %></h5>
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <div class="col">
+            <h5>No of Days Worked</h5>
+          </div>
+          <div class="col">
+            <h5><%= days %></h5>
+          </div>
+        </div>
+        <hr>
+        <div class="row" style="margin-top:10px">
+          <div class="col">
+            <h5 style="font-weight:bold">Earnings</h5>
+            <hr>
+            <div class="row" style="margin-top:10px">
+              <div class="col">
+                <p>Base Pay</p>
+              </div>
+              <div class="col">
+                <p>Rs. <%= details.basepay %></p>
+              </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+              <div class="col">
+                <p>HouseRent Allowance</p>
+              </div>
+              <div class="col">
+                <p>Rs. <%= details.houserent %></p>
+              </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+              <div class="col">
+                <p>Oncall / Shift Allowance </p>
+              </div>
+              <div class="col">
+                <p>Rs. <%= details.oncall %></p>
+              </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+              <div class="col">
+                <p>STAT Bonus</p>
+              </div>
+              <div class="col">
+                <p>Rs. <%= details.bonus %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <h5 style="font-weight:bold">Deductions</h5>
+            <hr>
+            <div class="row" style="margin-top:10px">
+              <div class="col">
+                <p>Proffessional Tax</p>
+              </div>
+              <div class="col">
+                <p>Rs. <%= details.ptax %></p>
+              </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+              <div class="col">
+                <p>Income Tax</p>
+              </div>
+              <div class="col">
+                <p>Rs. <%= details.itax %></p>
+              </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+              <div class="col">
+                <p>Provident Fund</p>
+              </div>
+              <div class="col">
+                <p>Rs. <%= details.pf %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row" style="margin-top:10px">
+          <div class="col">
+            <div class="row" style="margin-top:10px">
+              <div class="col">
+                <p>Gross Earnings</p>
+              </div>
+              <div class="col">
+                <p>Rs. <%= details.grossearn %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row" style="margin-top:10px">
+              <div class="col">
+                <p>Gross Deductions</p>
+              </div>
+              <div class="col">
+                <p>Rs. <%= details.grossdeduct %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row" style="margin-top:10px">
+          <div class="col">
+            <p>Netpay</p>
+          </div>
+          <div class="col">
+            <p>Rs. <%= details.netpay %></p>
+          </div>
+        </div>
+        <hr>
+        <input type="hidden" name="id" value=<%= username._id %> />
+        <input class="btn btn-light submit-button" type="button" onclick="window.print()" value="Print Report" />
+      </form>
+    </div>
+  </div>
+
+  <%- include("partials/footer"); -%>

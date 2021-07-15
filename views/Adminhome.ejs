@@ -1,0 +1,78 @@
+<%- include("partials/headeradmin"); -%>
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">New Employee Approval</h3>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Employee Info</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table dataTable my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>D.O.B</th>
+                                            <th>Gender</th>
+                                            <th>Address</th>
+                                            <th>Phone</th>
+                                            <th>
+                                              Designation
+                                              </th>
+                                            <th>Accept / Reject</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <%  for (var i = 0; i < emprequest.length; i++) {%>
+                                      <form method="post">
+                                        <tr>
+                                            <td> <%= emprequest[i].fullname %></td>
+                                            <td><%= emprequest[i]._id %></td>
+                                            <td><%= emprequest[i].dob %></td>
+                                            <td><%= emprequest[i].gender %></td>
+                                            <td><%= emprequest[i].address %></td>
+                                            <td><%= emprequest[i].phone %></td>
+                                            <td>
+                                              <div class="form-row form-group">
+                                                  <div class="input-column"><select name="des" class="form-control" required><option value selected>Choose Designation</option>
+                                                    <option value=0>Manager</option>
+                                                    <option value=1>Software-Engineer</option>
+                                                    <option value=2>Developer</option>
+                                                    <option value=3>Sales-Assistant</option>
+                                                    <option value=4>Accountant</option>
+                                                    <option value=5>Intern</option>
+                                                  </select></div>
+                                              </div>
+
+                                              </td>
+                                            <td>
+                                              <div class="form-group">
+                                                <input type="hidden" name="req" value= <%= emprequest[i]._id %> />
+                                                <input type="hidden" name="btype" value= "Accept" />
+                                                <button class="btn btn-primary" type="submit" value="Accept" >Accept</button></div>
+                                              </form>
+                                              <form method="post">
+                                              <div class="form-group">
+                                                <input type="hidden" name="req" value= <%= emprequest[i]._id %> />
+                                                <input type="hidden" name="btype" value= "Reject" />
+                                                <button class="btn btn-danger" type="submit" value="Reject" />Reject</div>
+                                              </form>
+
+                                              </td>
+                                        </tr>
+
+                                  <%   } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+<%- include("partials/footer"); -%>

@@ -1,0 +1,11 @@
+<%- include("partials/header"); -%>
+<div class="login-clean">
+    <form method="post">
+        <h2 class="text-center">Employee Login</h2>
+        <div class="illustration"><i class="fas fa-user-tie" style="color: rgb(48,34,37);"></i></div>
+        <p style="color: red;text-align: center;"> <%= invalid %>  </p>
+        <div class="form-group"><input type="email" class="form-control" name="email" placeholder="Email" /></div>
+        <div class="form-group"><input type="password" class="form-control" name="password" placeholder="Password" /></div>
+        <div class="form-group"><button class="btn btn-dark btn-block" type="submit">Log In</button></div><a class="forgot" href="/employeeregister">New Employee ? Click here to Register</a></form>
+</div>
+<%- include("partials/footer"); -%>

@@ -1,0 +1,24 @@
+{
+  "name": "payroll-system",
+  "version": "1.0.0",
+  "description": "It is a payroll system prototype software",
+  "main": "app.js",
+  "engines": {
+    "node": "14.15.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Pakkeer Mydeen N",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.5",
+    "es6-promise": "^4.2.8",
+    "express": "^4.17.1",
+    "md5": "^2.3.0",
+    "mongoose": "^5.13.2"
+  }
+}
